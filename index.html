@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dear Sann</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ff5252;
+        }
+        img {
+            width: 200px;  /* Uniform size */
+            height: 200px; /* Uniform size */
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            object-fit: cover; /* Ensures the images maintain aspect ratio and fit within the box */
+        }
+        img:hover {
+            border-color: #ff6b6b;
+        }
+        .verse {
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+        .rating-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="surveyForm" action="https://formspree.io/f/xkgnaqre" method="POST">
+            <div id="step1">
+                <h1>Hi Sann,</h1>
+                <p>I just wanted to tell you how much you mean to me. You're truly amazing, and I feel so blessed to have you in my life. 💖</p>
+                <p class="verse">"Love is patient, love is kind. It does not envy, it does not boast, it is not proud." – 1 Corinthians 13:4</p>
+                <button type="button" onclick="nextStep('step2')">Next</button>
+            </div>
+
+            <div id="step2" class="hidden">
+                <h1>How are you feeling today?</h1>
+                <p>Rate how you feel on a scale of 1 to 10 (5 is normal good, 10 is super good):</p>
+                <div class="rating-buttons">
+                    <button type="button" onclick="nextStep('step3', '1')">1</button>
+                    <button type="button" onclick="nextStep('step3', '2')">2</button>
+                    <button type="button" onclick="nextStep('step3', '3')">3</button>
+                    <button type="button" onclick="nextStep('step3', '4')">4</button>
+                    <button type="button" onclick="nextStep('step3', '5')">5</button>
+                    <button type="button" onclick="nextStep('step3', '6')">6</button>
+                    <button type="button" onclick="nextStep('step3', '7')">7</button>
+                    <button type="button" onclick="nextStep('step3', '8')">8</button>
+                    <button type="button" onclick="nextStep('step3', '9')">9</button>
+                    <button type="button" onclick="nextStep('step3', '10')">10</button>
+                </div>
+                <p class="verse">"Come to me, all you who are weary and burdened, and I will give you rest." – Matthew 11:28</p>
+            </div>
+
+            <div id="step3" class="hidden">
+                <h1>Koi mun ah vak khawm leng na lunggulh zaw a, Sann?</h1>
+                <p>Let me know your preference for our next date location:</p>
+                <div>
+                    <img src="https://estespark.com/wp-content/uploads/2023/11/Restaurants-in-Estes-Park.jpg" alt="A Romantic Restaurant" onclick="nextStep('step4', 'A Romantic Restaurant')">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUL7VUHSXUA4nMXOH9kVzsocLaa58hNFWyLQ&s" alt="A Peaceful Park" onclick="nextStep('step4', 'A Peaceful Park')">
+                    <img src="https://geocuisinebayridge.com/wp-content/uploads/2024/06/Cafe_Design_Cozy_Spots_for_Introspection.webp" alt="A Cozy Cafe" onclick="nextStep('step4', 'A Cozy Cafe')">
+                    <img src="https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_621,q_75,w_966/v1/clients/southshore/Indiana_Dunes_State_Park_Pavilion_01d90b70-a975-4b18-83ed-d217e4919096.jpg" alt="A Scenic Beach" onclick="nextStep('step4', 'A Scenic Beach')">
+                </div>
+                <p class="verse">"The Lord is my shepherd; I shall not want. He makes me lie down in green pastures." – Psalm 23:1-2</p>
+            </div>
+
+            <div id="step4" class="hidden">
+                <h1>What would you like to eat?</h1>
+                <p>Choose your favorite type of food:</p>
+                <div>
+                    <img src="https://c.ndtvimg.com/2021-04/umk8i7ko_pasta_625x300_01_April_21.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=886" alt="Italian" onclick="nextStep('step5', 'Italian')">
+                    <img src="https://images.prismic.io/facility-websites/Zk56Niol0Zci9Xx0_asian_food.png?auto=format%2Ccompress&rect=0%2C28%2C1792%2C968&w=1000&h=540" alt="Asian" onclick="nextStep('step5', 'Asian')">
+                    <img src="https://www.elrincontx.com/wp-content/uploads/2023/07/mexican-food-3.jpg" alt="Mexican" onclick="nextStep('step5', 'Mexican')">
+                    <img src="https://res.cloudinary.com/hz3gmuqw6/image/upload/c_fill,q_auto,w_750/f_auto/tk-traditional-indian-foods-to-taste-in-2022-phpEXAXNS" alt="Indian" onclick="nextStep('step5', 'Indian')">
+                </div>
+                <p class="verse">"Taste and see that the Lord is good; blessed is the one who takes refuge in him." – Psalm 34:8</p>
+            </div>
+
+            <div id="step5" class="hidden">
+                <h1>What should we do?</h1>
+                <p>Pick an activity for us:</p>
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiji3JJZGPw101D-5q3RmkcVzH_dgUGl6rYA&s" alt="Movie Night" onclick="nextStep('step6', 'Movie Night')">
+                    <img src="https://aceraft.com/wp-content/uploads/2019/05/endless-walk-hike-2-scaled.jpg" alt="Adventure Walk" onclick="nextStep('step6', 'Adventure Walk')">
+                    <img src="https://weddingbells.mblycdn.com/uploads/wb/2020/03/why-cooking-together-is-a-relationship-must.jpg" alt="Cooking Together" onclick="nextStep('step6', 'Cooking Together')">
+                    <img src="https://cloudfront-us-east-1.images.arcpublishing.com/grandrapids/3F5V3FUKWJYIRDOX5AFNRZP7TI.jpg" alt="Board Games" onclick="nextStep('step6', 'Board Games')">
+                </div>
+                <p class="verse">"The joy of the Lord is your strength." – Nehemiah 8:10</p>
+            </div>
+
+            <div id="step6" class="hidden">
+                <h1>Thank You, Sann!</h1>
+                <p>Your choices mean so much to me. Can't wait to plan our time together. ❤️</p>
+                <!-- Removed responses display here -->
+            </div>
+
+            <input type="hidden" name="userChoices" id="userChoices">
+        </form>
+    </div>
+
+    <script>
+        const userChoices = {};
+
+        function nextStep(stepId, choice = null) {
+            if (choice) {
+                const step = stepId === 'step2' ? 'mood' : stepId === 'step3' ? 'location' :
+                             stepId === 'step4' ? 'food' : 'activity';
+                userChoices[step] = choice;
+            }
+
+            const steps = document.querySelectorAll('.container > div');
+            steps.forEach(step => step.classList.add('hidden'));
+
+            document.getElementById(stepId).classList.remove('hidden');
+
+            if (stepId === 'step6') {
+                document.getElementById('userChoices').value = JSON.stringify(userChoices);
+                document.getElementById('surveyForm').submit(); // Automatically submit the form
+            }
+        }
+    </script>
+</body>
+</html>
